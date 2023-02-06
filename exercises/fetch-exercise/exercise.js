@@ -17,12 +17,13 @@ Open index.html in your browser. Every time you refresh the page,
 a different greeting should be displayed in the box.
 */
 
-  fetch('https://codeyourfuture.herokuapp.com/api/greetings')
-  .then(function (response) {
-    return response.text();
+  fetch("https://holy-snow-6805.fly.dev/api/greetings")
+  .then(response => {
+    return response.json();
   })
-  .then(function (greeting) {
+  .then(data => {
     let myMessage = document.getElementById('greeting-text');
-    myMessage.innerText = greeting;
+    console.log(data)
+    myMessage.innerText = data.hello;
   })
   .catch((error) => console.log(error));
